@@ -68,7 +68,7 @@ def update_pie_chart(selected_site):
         return fig
     else:
         spacex_site = spacex_df[spacex_df["Launch Site"] == selected_site].copy()
-        plot_data = (spacex_df.groupby("class")["Launch Site"].count()/len(spacex_df)).reset_index()
+        plot_data = (spacex_site.groupby("class")["Launch Site"].count()/len(spacex_site)).reset_index()
         fig = px.pie(plot_data, values='Launch Site', 
                         names=["Percent Success", "Percent Failed"], 
                         title='Success Ratio for Selected Site')
